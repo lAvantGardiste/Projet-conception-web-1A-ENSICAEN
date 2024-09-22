@@ -1,0 +1,46 @@
+ <!DOCTYPE html>
+<html>
+<head>
+	<title>Projet Conception Site Web - 1A Info</title>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+	<link rel="stylesheet" href="tools/normalize.css"/>
+	<style type="text/css">
+     * { text-align: center; }
+     .canva { width: 512px; height: 256px; border-width: 2px; border-style: solid; margin-left: auto; margin-right: auto;}
+     #stop_clic:hover { font-variant: small-caps; cursor: pointer; }
+   </style>
+   
+</head>
+<body>
+	<h1>TP3-1</h1>
+	
+   <div class="canva">
+		<canvas id="canvaimage" width="512" height="256"> 
+			Ne supporte pas canvas.
+		</canvas>
+	</div>
+	<div id="stop_clic">Start/Stop</div>
+	<canvas id="monCanvas" width="500" height="500"></canvas>
+    
+
+
+</body>
+
+<script type="text/javascript">
+	let canva = document.getElementById("canvaimage")
+	let contxt = canva.getContext("2d")
+	var mon_image = new Image()
+	
+	mon_image.src = "./images/paysage.jpg"
+	mon_image.ctx = contxt
+	mon_image.alt = "c'est un paysage"
+ 
+	mon_image.addEventListener('load',imageLoaded,false)
+	function imageLoaded(evt) {
+		 contxt.drawImage(mon_image,0,0,512,256,0,0,512,256);
+	}
+ 
+ </script>
+</html>
+
